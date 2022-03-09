@@ -15,3 +15,6 @@
 | POST |	/places/:id/rant  |	Create a rant (comment) about a particular place |
 | DELETE |	/places/:id/rant/:rantId |	Delete a rant (comment) about a particular place |
 | GET |	* |	404 | page (matches any route not defined above) |
+
+
+![image](https://media.giphy.com/media/V48T5oWs3agg0/giphy.gif)
