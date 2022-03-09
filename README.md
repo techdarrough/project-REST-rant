@@ -3,6 +3,7 @@
 ### By Preston Darrough
 
 | Method |	Path |	Purpose |
+|----------|--------------|--------|
 | GET |	/ |	Home page |
 | GET |	/places |	Places index page |
 | POST |	/places |	Create new place |
