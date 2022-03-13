@@ -1,5 +1,5 @@
 import React from 'react';
-const Def = require('../default')
+import Def from '../default';
 
 
 

@@ -26,9 +26,13 @@ router.post('/', (req, res) => {
 router.get('/new', (req, res) => {
   res.render('places/new')
 })
-
+//show route multi condintional ternary operator expression
 router.get('/:id', (req, res) => {
-  res.send('place details');
+  let id = Number(req.params.id);
+  console.log(id);
+  isNaN(id)?res.status(404).render('error404'): //first condintional
+ (!places[id])?res.status(404).render('error404'): //second contional
+  res.render("places/show", { place: places[id], id }); //else value
 });
 
 router.put('/:id', (req, res) => {
@@ -39,8 +43,16 @@ router.get('/:id/edit', (req, res) => {
   res.send('Edit an existing place');
 });
 
-router.delete('/:id', (req, res) => {
-  res.send("Delete a particular place");
+router.delete("/:id", (req, res) => {
+  let id = Number(req.params.id);
+  if (isNaN(id)) {
+    res.render("error404");
+  } else if (!places[id]) {
+    res.render("error404");
+  } else {
+    places.splice(id, 1);
+    res.redirect("/places");
+  }
 });
 
 router.post('/:id/rant', (req, res) => {

@@ -4,7 +4,7 @@ import Def from '../default';
 let index = (data) => {
     let placesFormatted = data.places.map((place, idx) => (
         <div className='col-sm-6' key={idx}>
-            <h2>{place.name}</h2>
+            <h2><a href={`/places/${idx}`}>{place.name}</a></h2>
             <p className='tex-center'>
                 {place.cuisines}
             </p>
