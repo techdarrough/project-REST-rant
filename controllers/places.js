@@ -40,7 +40,9 @@ router.put('/:id', (req, res) => {
 });
 
 router.get('/:id/edit', (req, res) => {
-  res.send('Edit an existing place');
+  isNaN(id)?res.status(404).render('error404'): //first condintional
+ (!places[id])?res.status(404).render('error404'): //second contional
+  res.status(200).render('/places/edit');
 });
 
 router.delete("/:id", (req, res) => {

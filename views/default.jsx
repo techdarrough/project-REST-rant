@@ -10,26 +10,23 @@ let Def = (html) => (
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
         crossOrigin="anonymous"
       ></link>
-      <link rel="stylesheet" href="style.css" />
+      <link rel="stylesheet" href="/css/style.css"></link>
     </head>
     <body>
-        
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div  class="collapse navbar-collapse">
-            <ul class="navbar-nav">
-          <li class="nav-item active">
+      <nav>
+        <ul>
+          <li>
             <a href="/">Home</a>
           </li>
-          <li class="nav-item">
+          <li>
             <a href="/places">Places</a>
           </li>
-          <li class="nav-item">
+          <li>
             <a href="/places/new">Add New Place</a>
           </li>
         </ul>
-        </div>
       </nav>
-      
+
       {html.children}
       <script
         src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
