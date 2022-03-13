@@ -1,29 +1,55 @@
-const { append } = require('express/lib/response')
-
-const router = require('express').Router()
+const router = require("express").Router();
+const places = require("../models/places.js");
 
 // get places
+router.get('/', (req, res) => {res.render('places/index', { places })})
 
-router.get('/', (req, res) => {
-        let places = [{
-                name: 'H-Thai-ML',
-                city: 'Seattle',
-                state: 'WA',
-                cuisines: 'Thai, Pan-Asian',
-                pic: '/images/jason-leung-poI7DelFiVA-unsplash.jpg'
-              }, {
-                name: 'Coding Cat Cafe',
-                city: 'Phoenix',
-                state: 'AZ',
-                cuisines: 'Coffee, Bakery',
-                pic: '/images/piotr-szulawski-DCmUhk54F6M-unsplash.jpg'
-              }]
-        res.render('places/index', { places })
+//POST
+router.post('/', (req, res) => {
+  console.log(req.body)
+  if (!req.body.pic) {
+    // Default image if one is not provided
+    req.body.pic = 'http://placekitten.com/400/400'
+  }
+  if (!req.body.city) {
+    req.body.city = 'Anytown'
+  }
+  if (!req.body.state) {
+    req.body.state = 'USA'
+  }
+  places.push(req.body)
+  res.redirect('/places')
+  
 })
 
+// get new 
 router.get('/new', (req, res) => {
   res.render('places/new')
 })
+
+router.get('/:id', (req, res) => {
+  res.send('place details');
+});
+
+router.put('/:id', (req, res) => {
+  res.send('update place');
+});
+
+router.get('/:id/edit', (req, res) => {
+  res.send('Edit an existing place');
+});
+
+router.delete('/:id', (req, res) => {
+  res.send("Delete a particular place");
+});
+
+router.post('/:id/rant', (req, res) => {
+  res.send('Create a rant');
+});
+
+router.delete('/:id/rant/:rantId', (req, res) => {
+  res.send('Delete');
+});
 
 
 module.exports = router

@@ -11,6 +11,7 @@ app.use(express.static('public'));
 
 
 // controllers and routes
+app.use(express.urlencoded({ extended: true }));
 app.use('/places', require('./controllers/places'));
 
 app.get('/', (req, res) => {
@@ -22,3 +23,4 @@ app.get('*', (req, res) => {
 });
 
 app.listen(process.env.PORT);
+console.log(`Listening on port ${process.env.PORT}`)
