@@ -1,4 +1,6 @@
 const router = require('express').Router()
+const req = require('express/lib/request')
+const res = require('express/lib/response')
 const db = require('../models')
 
 router.get("/", (req, res) => {
@@ -29,13 +31,19 @@ router.get('/:id', (req, res) => {
 router.put('/:id', (req, res) => {
   res.send('PUT /places/:id stub')
 })
-
-router.delete('/:id', (req, res) => {
-  res.send('DELETE /places/:id stub')
+//Delete
+router.delete(':id', (req, res) => {
+  console.log(req.params.id)
+  db.Place.findByIdAndDelete(req.params.id).then(
+    res.status(303).redirect('/places')
+  ).catch(err => console.log(err))
+ 
 })
-
-router.get('/:id/edit', (req, res) => {
-  res.send('GET edit form stub')
+//Edit
+router.get('/places/:id/edit', (req, res) => {
+  db.Place.findByIdAndUpdate(req.params.id).then(
+    (place) => res.render('places/:id')
+  )
 })
 
 router.post('/:id/rant', (req, res) => {
@@ -47,3 +55,6 @@ router.delete('/:id/rant/:rantId', (req, res) => {
 })
 
 module.exports = router
+
+
+
