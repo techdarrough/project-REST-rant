@@ -32,16 +32,14 @@ router.put('/:id', (req, res) => {
   res.send('PUT /places/:id stub')
 })
 //Delete
-router.delete(':id', (req, res) => {
-  console.log(req.params.id)
-  db.Place.findByIdAndDelete(req.params.id).then(
-    res.status(303).redirect('/places')
-  ).catch(err => console.log(err))
- 
-})
+router.delete(":id", (req, res) => {
+  db.Place.findByIdAndRemove(req.params.id)
+    .then(res.redirect("/places"))
+    .catch((err) => console.log(err));
+});
 //Edit
 router.get('/places/:id/edit', (req, res) => {
-  db.Place.findByIdAndUpdate(req.params.id).then(
+  db.Place.findByIdAndUpdate(req.params.id).exec().then(
     (place) => res.render('places/:id')
   )
 })

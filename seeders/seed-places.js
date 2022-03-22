@@ -24,6 +24,7 @@ process.exit()
 })
 .catch(err => {
     console.log(`Fail sauce ${err}`)
+    process.exit()
 
 })
 
