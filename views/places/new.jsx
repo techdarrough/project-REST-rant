@@ -1,12 +1,18 @@
-import React from 'react';
-import Def from '../default';
+import React from "react";
+import Def from "../default";
 
-
-
-let newForm = () => (
+let newForm = (data) => {
+let message = ''
+if (data.message) {
+  message = (
+    <h4 className="alert-danger">{data.message}</h4>
+  )
+}
+return (
   <Def>
     <main>
       <h1>Add a new place</h1>
+      {data.message}
 
       <form method="POST" action="/places">
         <div className="form-group">
@@ -36,12 +42,18 @@ let newForm = () => (
         </div>
         <div className="form-group">
           <label for="founded">Founded Year</label>
-          <input className="form-control" id="founded" name="founded" />
+          <input
+            type="number"
+            className="form-control"
+            id="founded"
+            name="founded"
+            value={new Date().getFullYear}
+          />
         </div>
         <input className="btn btn-primary" type="submit" value="Add Place" />
       </form>
     </main>
   </Def>
-);
+)};
 
-module.exports = newForm
+module.exports = newForm;
