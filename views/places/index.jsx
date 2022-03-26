@@ -24,6 +24,6 @@ let index = (data) => {
                </div>
            </main>
        </Def>
-    )
+    );
 }
 module.exports = index
