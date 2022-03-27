@@ -54,6 +54,16 @@ let edit_form = (data) => (
             value={data.place.cuisines}
             required
           />
+          </div>
+          <div className="form-group">
+          <label htmlFor="founded">Cuisines</label>
+          <input
+            className="form-control"
+            id="founded"
+            name="founded"
+            value={data.place.founded}
+            required
+          />
         </div>
         <input className="btn btn-primary" type="submit" value="Add Place" />
       </form>

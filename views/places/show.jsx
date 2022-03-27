@@ -42,7 +42,6 @@ if (data.place.comments.length) {
       <main>
         <div className="row" key={data.place.id}>
           <h1>{data.place.name}</h1>
-          
 
           <div className="col-sm-6">
             <img src={data.place.pic} alt={data.place.name} />
@@ -51,39 +50,48 @@ if (data.place.comments.length) {
             </h3>
           </div>
           <div className="col-sm-6">
-
             <h2>Description</h2>
-           
+
             <h3>{data.place.showEstablished()}</h3>
             <h4>Serving {data.place.cuisines}</h4>
             <h5>{rating}</h5>
-            {console.log(rating)}
+
             <input
-                className="rating"
-                data-show-caption="true"
-                data-show-clear= "false"
-                data-readonly="true"
-                type="range"
-                id="input-3" 
-                name="input-3" 
-                value= {rating}
-                // I used an NPM package calleed  bootstrap-star-rating to make some great looking stars
-                
-                />
+              className="rating"
+              data-show-caption="true"
+              data-show-clear="false"
+              data-readonly="true"
+              type="range"
+              id="input-3"
+              name="input-3"
+              value={rating}
+              // I used an NPM package calleed  bootstrap-star-rating to make some great looking stars
+            />
             
+             
+            <a // edit  and delete 
+              href={`/places/${data.place.id}/edit`}
+              className="btn btn-warning"
+            >
+              Edit
+            </a>
+            <form
+              method="POST"
+              action={`/places/${data.place.id}?_method=DELETE`}
+            >
+              <button type="submit" className="btn btn-danger">
+                Delete
+              </button>
+            </form>
 
-
-          
-
-
-          <br/>
+            <br />
           </div>
           <div className="row">
             <hr />
             <h2>Comments</h2>
             {comments}
           </div>
-          <form method='POST' action={`/places/${data.place.id}/comment`}>
+          <form method="POST" action={`/places/${data.place.id}/comment`}>
             <div className="form-group">
               <label htmlFor="author">Author</label>
               <input className="form-control" id="author" name="author" />
@@ -111,10 +119,7 @@ if (data.place.comments.length) {
                 step="0.5"
                 min="0"
                 max="5"
-                
               />
-             
-              
             </div>
 
             <div className="form-group">
@@ -128,8 +133,6 @@ if (data.place.comments.length) {
               value="Add Comment"
             />
           </form>
-
-
         </div>
       </main>
     </Def>
