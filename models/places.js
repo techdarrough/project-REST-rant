@@ -15,7 +15,7 @@ const placeSchema = new mongoose.Schema({
 });
 //helper methods
 placeSchema.methods.showEstablished = function () {
-  return `${this.name} has bee serving ${this.city}, ${this.state} since ${this.founded}`;
+  return `${this.name} has been serving ${this.city}, ${this.state} since ${this.founded}`;
 };
 
 
