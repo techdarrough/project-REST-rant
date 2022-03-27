@@ -18,6 +18,17 @@
 | GET |	* |	404 | page (matches any route not defined above) |
 
 
+|NPM packages used|Version|
+|-----------------|--------|
+|bootstrap-star-rating | 4.1.2 |
+|dotenv | 16.0.0 |
+| express-react-views | 0.11.0|
+| express | 4.17.3 |
+| method-override | 3.0.0 |
+| react | 17.0.2 |
+| urlencode | 1.1.0 |
+
+
 ![image](https://media.giphy.com/media/V48T5oWs3agg0/giphy.gif)
 
 
