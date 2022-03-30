@@ -8,5 +8,24 @@
     "mongoose": "^6.2.7",
     "react": "^17.0.2",
     "urlencode": "^1.1.0"
-  }
+  },
+  "name": "rest-rant",
+  "description": "| Method |\tPath |\tPurpose | |----------|--------------|--------| | GET |\t/ |\tHome page | | GET |\t/places |\tPlaces index page | | POST |\t/places |\tCreate new place | | GET |\t/places/new |\tForm page for creating a new place | | GET |\t/places/:id |\tDetails about a particular place | | PUT |\t/places/:id |\tUpdate a particular place | | GET |\t/places/:id/edit |\tForm page for editing an existing place | | DELETE |\t/places/:id |\tDelete a particular place | | POST |\t/places/:id/rant  |\tCreate a rant (comment) about a particular place | | DELETE |\t/places/:id/rant/:rantId |\tDelete a rant (comment) about a particular place | | GET |\t* |\t404 | page (matches any route not defined above) |",
+  "version": "1.0.0",
+  "engines": {"node":"v17.8.0"},
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/techdarrough/project-REST-rant.git"
+  },
+  "author": "Preston Darough",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/techdarrough/project-REST-rant/issues"
+  },
+  "homepage": "https://github.com/techdarrough/project-REST-rant#readme"
 }
